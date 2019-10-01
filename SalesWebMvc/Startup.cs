@@ -56,6 +56,7 @@ namespace SalesWebMvc
             {
                 routes.MapRoute(
                     name: "default",
+                    //se não digitar nenhuma ação o padraão é index
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }

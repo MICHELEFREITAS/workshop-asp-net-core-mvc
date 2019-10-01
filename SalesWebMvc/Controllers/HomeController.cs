@@ -17,7 +17,9 @@ namespace SalesWebMvc.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            //ViewData dicionário c# coleção pares chave e valor
+            ViewData["Message"] = "Salles web MVC App from C#";
+            ViewData["autor"] = "Michele Freitas";
 
             return View();
         }

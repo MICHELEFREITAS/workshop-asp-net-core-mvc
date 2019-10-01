@@ -1,7 +1,13 @@
 ﻿@{
+    //aqui nesse bloco com @ entra código c#. Mas deve usar boas práticas para colocar código aqui na view
+
     ViewData["Title"] = "About";
 }
 <h2>@ViewData["Title"]</h2>
 <h3>@ViewData["Message"]</h3>
 
-<p>Use this area to provide additional information.</p>
+<p>Autor: @ViewData["autor"]</p>
+
+<address>
+    <strong>More information:</strong><a href="https://www.linkedin.com/in/michelebragafreitas/">Linkedin</a>
+</address>
