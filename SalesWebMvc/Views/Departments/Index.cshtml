@@ -1,0 +1,47 @@
+﻿<!--IEnumerable é coleção genérica Department - não tem operação add e remove, só vou percorrer-->
+@model IEnumerable<SalesWebMvc.Models.  Department>
+
+@{
+    ViewData["Title"] = "Departments";
+}
+
+<h2>Departments</h2>
+
+<p>
+    <!--a-> link que aponta para ação create do departmentsController. O asp-action gera link automático-->
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <!--Essa expressão lambda => serve para selecionar qual dado model vou exibir no cabeçalho-->
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                <!--métodos específicos geração conteúdo automático(DisplayName..., DisplayFor, ActionLink)-->
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--pega o Model da coleção genérica acima e chama cada elemento de item-->
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
