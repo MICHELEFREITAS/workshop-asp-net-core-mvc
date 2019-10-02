@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SalesWebMvc.Models
 {
+    //class básica Entity Framework que herda DBContext. Encapsula sessão com BD
     public class SalesWebMvcContext : DbContext
     {
         public SalesWebMvcContext (DbContextOptions<SalesWebMvcContext> options)
