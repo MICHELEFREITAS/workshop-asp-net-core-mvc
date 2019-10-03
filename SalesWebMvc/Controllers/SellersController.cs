@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SalesWebMvc.Models;
 using SalesWebMvc.Services;
 
 namespace SalesWebMvc.Controllers
@@ -27,6 +28,22 @@ namespace SalesWebMvc.Controllers
             //3º* Encaminha dados para View
             return View(list);
         }
+
+        //Ação botão Create New. Retorna View create. Depois Views-Sellers-Create.cshtml
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        //"Create" Post action. Recebe obj vendedor que veio na requisição. INSERIR NO BD
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Seller seller) {
+            _sellerService.Insert(seller);
+            //redirecionar
+            return RedirectToAction(nameof(Index));
+        }
+
 
 
     }
