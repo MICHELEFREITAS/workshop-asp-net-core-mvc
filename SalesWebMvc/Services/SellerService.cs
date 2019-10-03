@@ -26,6 +26,8 @@ namespace SalesWebMvc.Services
 
         //inserir um novo vendedor(obj) no BD
         public void Insert(Seller obj) {
+            //pegar primeiro departm.do BD e associar com primeiro vendedor
+            obj.Department = _context.Department.First();
             _context.Add(obj);
             _context.SaveChanges();
         }

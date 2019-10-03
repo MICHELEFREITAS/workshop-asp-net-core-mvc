@@ -13,6 +13,8 @@ namespace SalesWebMvc.Models
         public double BaseSalary { get; set; }
         //1 seller possui 1 departamento
         public Department Department { get; set; }
+        //avisando entities framework que esse id tem que existir pq id não pode ser null
+        public int DepartmentId { get; set; }
         //Lista de vendas desse vendedor. Assossiação para muitos de acordo com diagrama do vendedor com registro de vendas. 1 vendedor tem várias vendas
         public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
